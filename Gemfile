@@ -7,6 +7,8 @@ gem 'rails', '4.0.3'
 gem 'pg'
 gem 'thin'
 gem 'thread_safe', '0.2.0'
+gem 'rails_12factor' , group: :production
+gem 'ruby'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

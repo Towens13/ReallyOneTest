@@ -9,7 +9,8 @@ gem 'thin'
 gem 'thread_safe', '0.2.0'
 gem 'rails_12factor' , group: :production
 gem 'ruby'
-
+gem 'devise'
+gem 'cancan'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

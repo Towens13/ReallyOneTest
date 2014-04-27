@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-ReallyOneTest::Application.config.secret_key_base = 'd234c28705a3cc15f4a01f33036190acb9386525fd0276a4596ac9fc5eab14a3392d499bfe37d01cde577ba78eb75a22863ac7f56da6c68aac5bc0f370100888'
+require 'securerandom'
+
+def secure_token
+	token_file = Rails.root.join('.secret')
+	if File.exist?(token_file)
+		#Use the existing token.
+		File.read(token_file).chomp
+	else
+		#Generate a new token and store it in token_file.
+		token = SecureRandom.hex(64)
+		File.write(token_file, token)
+		token
+	end
+end
+
+
+ReallyOneTest::Application.config.secret_key_base = secure_token
